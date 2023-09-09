@@ -1,3 +1,4 @@
+let n=0;
 function play(userChoice) {
     const choices = ["rock", "paper", "scissors"];
     const computerChoice = choices[Math.floor(Math.random() * 3)];
@@ -8,14 +9,16 @@ function play(userChoice) {
 }
 
 function getResult(user, computer) {
-    if (user === computer) return "It's a draw! 🤔";
+    if (user === computer) return ("It's a draw! 🤔 Score: "+n);
     if ((user === "rock" && computer === "scissors") ||
         (user === "paper" && computer === "rock") ||
         (user === "scissors" && computer === "paper")) {
-        return "You win! 🔥";
+        n=n+1;
+        return ("You win! 🔥Score: "+n);
         
     }
-    return "Opponent wins! 😢";
+    n=n-1;
+    return ("Opponent wins! 😢Score: "+n);
 }
 
 function displayResult(user, computer, result) {
