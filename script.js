@@ -1,4 +1,5 @@
-let n=0;
+let a=0;
+let c=0;
 function play(userChoice) {
     const choices = ["rock", "paper", "scissors"];
     const computerChoice = choices[Math.floor(Math.random() * 3)];
@@ -13,15 +14,17 @@ function getResult(user, computer) {
     if ((user === "rock" && computer === "scissors") ||
         (user === "paper" && computer === "rock") ||
         (user === "scissors" && computer === "paper")) {
-        n=n+1;
-        return ("You win! 🔥Score: "+n);
+        a=a+1;
+        c=c-1;
+       return "You Win! 🔥";
         
     }
-    n=n-1;
-    return ("Opponent wins! 😢Score: "+n);
+    a = a - 1;
+  c = c + 1;
+  return "Opponent Win! 😢";
 }
 
 function displayResult(user, computer, result) {
     const resultElement = document.getElementById("result");
-    resultElement.innerHTML = `You choose ${user}.<br>Opponent choose ${computer}.<br>${result}`;
+    resultElement.innerHTML = `You choose ${user}.<br>Opponent choose ${computer}.<br>${result}<br>Your Score: ${a}<br>Opponent Score: ${c}`;
 }
